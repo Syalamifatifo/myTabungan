@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+  <link rel="stylesheet"
+    href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+  <!--
+  UI Design Prototype
+  Link : https://dribbble.com/shots/10452538-React-UI-Components
+-->
+  <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="px-10">
+      <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+        <div class="">
+          <div class="flex items-center space-x-5">
+            <div
+              class="h-14 w-14 bg-yellow-200 flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
+              TBG</div>
+            <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+              <h2 class="leading-relaxed">Tabungan</h2>
+              <p class="text-sm text-gray-500 font-normal leading-relaxed">Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="divide-y divide-gray-200">
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <div class="md:col-span-5">
+                <label for="full_name">Full Name</label>
+                <input type="text" placeholder="Your Name" id="full_name"
+                  class="h-10 border mt-1  px-4 w-full text-gray-600 rounded-lg" value="" />
+              </div>
+              <div class="md:col-span-5">
+                <label for="full_name">No.ID</label>
+                <input type="text" placeholder="Your ID" id="tabungan_id"
+                  class="h-10 border mt-1  px-4 w-full text-gray-600 rounded-lg" value="" />
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center">
+                <h2 class="font-semibold text-lg mr-auto">Tambah Tabungan </h2>
+                <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+
+              </div>
+              <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+
+                <button
+                  class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+                  <a href="Index.html">Kembali</a> </button>
+                <button onclick="simpanUT()"
+                  class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Simpan</button>
+              </div>
+
+              <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                <div class="w-full flex flex-col mb-3">
+                  <label class="font-semibold text-gray-600 py-2">Tanggal</label>
+                  <input placeholder="Tanggal" id="tanggal"
+                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                    type="date" name="integration[street_address]" id="integration_street_address">
+                </div>
+
+              </div>
+              <div class="w-full flex flex-col mb-3">
+                <label class="font-semibold text-gray-600 py-2">Uang Masuk</label>
+                <input placeholder="Uang Masuk" id=uang_masuk
+                  class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                  type="number" name="integration[street_address]" id="integration_street_address">
+              </div>
+              <!-- This is an example component -->
+              <div class="">
+
+                <div class="flex flex-col">
+
+                </div>
+              </div>
+              <footer class="py-6 dark:bg-gray-800 dark:text-gray-50">
+                <div
+                  class="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-400 md:space-y-12 divide-opacity-50">
+                  <div class="grid grid-cols-12">
+                    <div class="pb-6 col-span-full md:pb-0 md:col-span-6">
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+            </footer>
+            <div class="flex items-center space-x-4">
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+    var uang_masuk = ''
+    var tanggal = ''
+    var tabungan = []
+  
+    const simpanUT = function () {
+      uang_masuk = document.getElementById('uang_masuk').value
+      tanggal = document.getElementById('tanggal').value
+      localStorage.setItem('uang_masuk', uang_masuk)
+      localStorage.setItem('tanggal', tanggal)
+      var datakanan = {}
+      datakanan.tanggal = tanggal
+      datakanan.uang_masuk = uang_masuk
+      console.log(datakanan)
+
+      tabungan.push(datakanan)
+      console.log(tabungan)
+      localStorage.setItem("tabungan" , JSON.stringify(tabungan))
+    }
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+      full_name = localStorage.getItem("full_name")
+      tabungan_id = localStorage.getItem("tabungan_id")
+      document.getElementById('full_name').value = full_name
+      document.getElementById('tabungan_id').value = tabungan_id
+    });
+  </script>
+
+</body>
+
+</html>

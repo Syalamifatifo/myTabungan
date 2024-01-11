@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet"
+        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js.js" type="text/javascript" />
+    </script>
+</head>
+
+<body>
+    <!--
+  UI Design Prototype
+  Link : https://dribbble.com/shots/10452538-React-UI-Components
+-->
+    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+        <div class="px-10">
+            <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                <div class=" mx-auto">
+                    <div class="flex items-center space-x-5">
+                        <div
+                            class="h-14 w-14 bg-yellow-200 flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
+                            TBG</div>
+                        <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+                            <h2 class="leading-relaxed">Tabungan</h2>
+                            <p class="text-sm text-gray-500 font-normal leading-relaxed">Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="divide-y divide-gray-200">
+                        <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                            <div class="md:col-span-5">
+                                <label for="full_name">Full Name</label>
+                                <input type="text" placeholder="Your Name" id="full_name"
+                                    class="h-10 border mt-1  px-4 w-full text-gray-600 rounded-lg" value="" />
+                            </div>
+                            <div class="md:col-span-5">
+                                <label for="full_name">No.ID</label>
+                                <input type="text" placeholder="Your ID" id="tabungan_id"
+                                    class="h-10 border mt-1  px-4 w-full text-gray-600 rounded-lg" value="" />
+                            </div>
+                            <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+                                <button onclick="simpanProfile()"
+                                    class=" text-right mb-2 md:mb-0 bg-orange-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500"><a>Simpan
+                                        Profile</a></button>
+                                <button
+                                    class=" text-right mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500"><a
+                                        href="newSaving.html">Tambah Tabungan</a></button>
+                            </div>
+                            <!-- This is an example component -->
+                            <div class="">
+
+                                <div class="flex flex-col">
+                                    <div class="overflow-x-auto shadow-md sm:rounded-lg">
+                                        <div class="inline-block min-w-full align-middle">
+                                            <div class="overflow-hidden ">
+                                                <table 
+                                                    class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+                                                    <thead class="bg-gray-100 dark:bg-gray-700">
+                                                        <tr>
+                                                            <th scope="col" class="p-4">
+                                                                <div class="flex items-center">
+                                                                    <input id="checkbox-all" type="checkbox"
+                                                                        class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                    <label for="checkbox-all"
+                                                                        class="sr-only">checkbox</label>
+                                                                </div>
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                                No
+                                                            </th>
+                                                            <th scope="col" id="Tanggal"
+                                                                class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                                Tanggal
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                                Uang
+                                                            </th>
+                                                            <th scope="col" class="p-4">
+                                                                <span class="sr-only">Edit</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody
+                                                        id="table_tabungan"
+                                                        class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <footer>
+                                <!-- This is an example component -->
+                                <div>
+                                    <div
+                                        class=" flex flex-col md:flex-row md:justify-between items-center text-lg font-bold">
+                                        <p class="order-2 md:order-1 mt-8 md:mt-0">Total</p>
+                                        <div class="order-1 md:order-2">
+                                            <span class="px-2">Rp.................</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col md:flex-row md:justify-between items-center text-lg font-bold">
+                                        <p class="order-2 md:order-1 mt-8 md:mt-0">Total</p>
+                                        <div class="order-1 md:order-2">
+                                            <span class="px-2">RpKeluar......</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </footer>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        var full_name = ''
+        var tabungan_id = ''
+
+        const simpanProfile = function () {
+            full_name = document.getElementById('full_name').value
+            tabungan_id = document.getElementById('tabungan_id').value
+            localStorage.setItem('full_name', full_name)
+            localStorage.setItem('tabungan_id', tabungan_id)
+        }
+        
+        // <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+        //                                                     <td class="p-4 w-4">
+        //                                                         <div class="flex items-center">
+        //                                                             <input id="checkbox-table-1" type="checkbox"
+        //                                                                 class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        //                                                             <label for="checkbox-table-1"
+        //                                                                 class="sr-only">checkbox</label>
+        //                                                         </div>
+        //                                                     </td>
+        //                                                     <td
+        //                                                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        //                                                         1</td>
+        //                                                     <td id="Tanggal"
+        //                                                         class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+        //                                                         Tanggal</td>
+        //                                                     <td
+        //                                                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        //                                                         uang</td>
+        //                                                     <td
+        //                                                         class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+        //                                                         <a href="TambahTabungan.html"
+        //                                                             class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+        //                                                     </td>
+        //                                                 </tr>
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            // Ini untuk isi profile
+            full_name = localStorage.getItem("full_name")
+            tabungan_id = localStorage.getItem("tabungan_id")
+            document.getElementById('full_name').value=full_name
+            document.getElementById('tabungan_id').value=tabungan_id
+
+            // ini untuk isi table
+            var tabungan = localStorage.getItem("tabungan")
+            var tabunganArray = JSON.parse(tabungan) 
+            console.log(tabunganArray)
+            var nomor = 0
+            while(nomor < tabunganArray.length){
+                console.log(nomor)
+                nomor++;
+                console.log(nomor)
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
